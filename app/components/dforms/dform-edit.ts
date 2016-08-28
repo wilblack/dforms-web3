@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 
 import { FormStore, Dform as DformModel} from '../../form-store';
 
-import { getForm } from '../../actions';
 
 @Component({
   selector: 'dform-edit',
@@ -13,7 +12,7 @@ import { getForm } from '../../actions';
 
 export class DformEdit {
     private sub: any;
-    public dform: Dform;
+    public dform: DformModel;
 
     constructor(private store: FormStore, private route: ActivatedRoute) {
         console.log("[DformEdit.constructor()]");
@@ -34,6 +33,4 @@ export class DformEdit {
     ngOnDestroy() {
         this.sub.unsubscribe();
     }
-}
-
 }

@@ -10,11 +10,20 @@ import { Dform }  from './dform';
 import { FormStore } from '../../form-store';
 import { dformsRouting } from './dforms.routing';
 
+
+
+import { MdCardModule } from '@angular2-material/card';
+import { MdButtonModule } from '@angular2-material/button';
+import { MdGridListModule } from '@angular2-material/grid-list/grid-list';
+
 @NgModule({
   imports: [
     CommonModule,
     //FormsModule,
-    dformsRouting
+    dformsRouting,
+    MdCardModule,
+    MdButtonModule,
+    MdGridListModule
   ],
   declarations: [
     DformList,

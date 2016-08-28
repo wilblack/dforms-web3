@@ -1,3 +1,7 @@
 .active {
     background: yellow;
 }
+
+.app-sidenav {
+    width: 25%;
+}

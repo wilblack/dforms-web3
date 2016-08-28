@@ -13,6 +13,13 @@ import { AppComponent }       from './app.component';
 import { routing,
          appRoutingProviders } from './app.routing';
 
+import {MdButtonModule} from '@angular2-material/button/button';
+import {MdCardModule} from '@angular2-material/card/card';
+import {MdToolbarModule} from '@angular2-material/toolbar/toolbar';
+import {MdSidenavModule} from '@angular2-material/sidenav/sidenav';
+import {MdIconModule} from '@angular2-material/icon/icon';
+import {MdListModule} from '@angular2-material/list/list';
+import {MdGridListModule} from '@angular2-material/grid-list/grid-list';
 
 
 @NgModule({
@@ -21,7 +28,14 @@ import { routing,
     //FormsModule,
     HttpModule,
     routing,
-    DformsModule
+    DformsModule,
+    MdToolbarModule,
+    MdButtonModule,
+    MdCardModule,
+    MdSidenavModule,
+    MdIconModule,
+    MdListModule,
+    MdGridListModule
   ],
   declarations: [
     AppComponent,

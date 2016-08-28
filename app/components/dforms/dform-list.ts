@@ -5,6 +5,8 @@ import { Dform } from './dform';
 
 import { addForm } from '../../actions';
 
+
+
 @Component({
   selector: 'form-list',
   templateUrl: 'app/components/dforms/dform-list.html',
@@ -20,6 +22,6 @@ export class DformList {
     }
 
   addForm(form) {
-    this.store.dispatch(addForm(form, this.formID++));
+    this.store.dispatch(addForm(form, this.formID++, "Description Goes Here"));
   }
 }

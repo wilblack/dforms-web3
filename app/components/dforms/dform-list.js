@@ -18,7 +18,7 @@ var DformList = (function () {
         this.formID = 0;
     }
     DformList.prototype.addForm = function (form) {
-        this.store.dispatch(actions_1.addForm(form, this.formID++));
+        this.store.dispatch(actions_1.addForm(form, this.formID++, "Description Goes Here"));
     };
     DformList = __decorate([
         core_1.Component({

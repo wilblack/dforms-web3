@@ -18,6 +18,13 @@ var http_1 = require('@angular/http');
 var dforms_module_1 = require('./components/dforms/dforms.module');
 var app_component_1 = require('./app.component');
 var app_routing_1 = require('./app.routing');
+var button_1 = require('@angular2-material/button/button');
+var card_1 = require('@angular2-material/card/card');
+var toolbar_1 = require('@angular2-material/toolbar/toolbar');
+var sidenav_1 = require('@angular2-material/sidenav/sidenav');
+var icon_1 = require('@angular2-material/icon/icon');
+var list_1 = require('@angular2-material/list/list');
+var grid_list_1 = require('@angular2-material/grid-list/grid-list');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -28,7 +35,14 @@ var AppModule = (function () {
                 //FormsModule,
                 http_1.HttpModule,
                 app_routing_1.routing,
-                dforms_module_1.DformsModule
+                dforms_module_1.DformsModule,
+                toolbar_1.MdToolbarModule,
+                button_1.MdButtonModule,
+                card_1.MdCardModule,
+                sidenav_1.MdSidenavModule,
+                icon_1.MdIconModule,
+                list_1.MdListModule,
+                grid_list_1.MdGridListModule
             ],
             declarations: [
                 app_component_1.AppComponent,

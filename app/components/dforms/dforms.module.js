@@ -16,6 +16,9 @@ var dform_edit_1 = require('./dform-edit');
 var dform_1 = require('./dform');
 var form_store_1 = require('../../form-store');
 var dforms_routing_1 = require('./dforms.routing');
+var card_1 = require('@angular2-material/card');
+var button_1 = require('@angular2-material/button');
+var grid_list_1 = require('@angular2-material/grid-list/grid-list');
 var DformsModule = (function () {
     function DformsModule() {
     }
@@ -24,7 +27,10 @@ var DformsModule = (function () {
             imports: [
                 common_1.CommonModule,
                 //FormsModule,
-                dforms_routing_1.dformsRouting
+                dforms_routing_1.dformsRouting,
+                card_1.MdCardModule,
+                button_1.MdButtonModule,
+                grid_list_1.MdGridListModule
             ],
             declarations: [
                 dform_list_1.DformList,

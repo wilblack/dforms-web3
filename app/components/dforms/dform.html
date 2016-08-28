@@ -1,15 +1,18 @@
-<div class="form-container">
-    <i class="fa fa-user fa-2x form-icon"></i>
-    <div class="form-info">
-        <h3 class="heading--name">{{ form.name }}</h3>
-        <div class="form-item">{{ form.description }}</div>
-    </div>
-    
-    <a [routerLink]="['/form-edit', form.id]" class="form-action">
-        <i class="fa fa-edit fa-2x " [class.fa-star-o]="!form.star"></i>
-    </a>
-    
-    <button class="form-action" (click)="removeForm(form)">
-        <i class="fa fa-trash fa-2x"></i>
-    </button>
-</div>
+<md-card>
+    <md-card-title class="heading--name">{{ form.name }}</md-card-title>
+
+    <md-card-content>
+        {{ form.description }}
+    </md-card-content>
+    <md-card-actions>
+
+        <button md-button [routerLink]="['/form-edit', form.id]" class="form-action">
+            <i class="fa fa-edit fa-2x " [class.fa-star-o]="!form.star"></i>
+        </button>
+        
+        <button md-button class="form-action" (click)="removeForm(form)">
+            <i class="fa fa-trash fa-2x"></i>
+        </button>
+    </md-card-actions>
+
+</md-card>
