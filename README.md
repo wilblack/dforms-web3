@@ -1,3 +1,5 @@
+## See [this blog post](http://houssein.me/redux/immutablejs/angular2/2016/07/04/angular2-with-immutablejs-and-redux.html) from http://houssein.me/
+
 # Angular 2 and Redux Tutorial: Contact List
 
 :clipboard: A simple contact list application built with Angular 2, Immutable.js and Redux.

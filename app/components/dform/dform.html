@@ -1,0 +1,15 @@
+<div class="form-container">
+    <i class="fa fa-user fa-2x form-icon"></i>
+    <div class="form-info">
+        <h3 class="heading--name">{{ form.name }}</h3>
+        <div class="form-item"><i class="fa fa-phone"></i> 647-XXX-XXXX</div>
+    </div>
+    
+    <button [routerLink]="['/form-edit', {formId:form.id}]" class="form-action">
+        <i class="fa fa-edit fa-2x " [class.fa-star-o]="!form.star"></i>
+    </button>
+    
+    <button class="form-action" (click)="removeForm(form)">
+        <i class="fa fa-trash fa-2x"></i>
+    </button>
+</div>

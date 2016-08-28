@@ -1,12 +1,11 @@
-import { Contact as ContactModel} from './contact-store';
 
-export interface IContactAction {
+export interface IFormAction {
   type: string;
   id: number;
   name?: string;
 }
 
-export function addContact(name: string, id: number): IContactAction {
+export function addForm(name: string, id: number): IFormAction {
   return {
     type: 'ADD',
     id,
@@ -14,14 +13,14 @@ export function addContact(name: string, id: number): IContactAction {
   };
 }
 
-export function removeContact(id: number): IContactAction {
+export function removeForm(id: number): IFormAction {
   return {
     type: 'REMOVE',
     id
   };
 }
 
-export function starContact(id: number): IContactAction {
+export function starForm(id: number): IFormAction {
   return {
     type: 'STAR',
     id
