@@ -6,6 +6,7 @@ import { BrowserModule }  from '@angular/platform-browser';
 import { Home } from './components/home/home';
 import { FormStore } from './form-store';
 
+import { HttpModule} from '@angular/http';
 
 import { DformsModule } from './components/dforms/dforms.module';
 import { AppComponent }       from './app.component';
@@ -18,11 +19,13 @@ import { routing,
   imports: [
     BrowserModule,
     //FormsModule,
+    HttpModule,
     routing,
     DformsModule
   ],
   declarations: [
     AppComponent,
+    
     //FormList,
     Home
   ],

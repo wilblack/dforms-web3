@@ -1,9 +1,10 @@
 "use strict";
-function addForm(name, id) {
+function addForm(name, id, description) {
     return {
         type: 'ADD',
         id: id,
-        name: name
+        name: name,
+        description: description
     };
 }
 exports.addForm = addForm;

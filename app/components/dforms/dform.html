@@ -2,7 +2,7 @@
     <i class="fa fa-user fa-2x form-icon"></i>
     <div class="form-info">
         <h3 class="heading--name">{{ form.name }}</h3>
-        <div class="form-item"><i class="fa fa-phone"></i> 647-XXX-XXXX</div>
+        <div class="form-item">{{ form.description }}</div>
     </div>
     
     <a [routerLink]="['/form-edit', form.id]" class="form-action">

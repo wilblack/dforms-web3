@@ -19,16 +19,11 @@ var Dform = (function () {
     }
     Dform.prototype.ngOnInit = function () {
         console.log("[Dform.ngOnInit()]");
-        this.sub = this.route.params.subscribe(function (params) {
-            var id = +params['id']; // (+) converts string 'id' to a number
-            console.log("[ngOnInit()] Got id ", id);
-        });
     };
     Dform.prototype.removeForm = function (form) {
         this.store.dispatch(actions_1.removeForm(form.id));
     };
     Dform.prototype.ngOnDestroy = function () {
-        this.sub.unsubscribe();
     };
     __decorate([
         core_1.Input(), 

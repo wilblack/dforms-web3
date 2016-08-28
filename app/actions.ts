@@ -3,15 +3,18 @@ export interface IFormAction {
   type: string;
   id: number;
   name?: string;
+  description?: string;
 }
 
-export function addForm(name: string, id: number): IFormAction {
+export function addForm(name: string, id: number, description: string): IFormAction {
   return {
     type: 'ADD',
     id,
-    name
+    name,
+    description
   };
 }
+
 
 export function removeForm(id: number): IFormAction {
   return {

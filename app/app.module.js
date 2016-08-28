@@ -14,6 +14,7 @@ var platform_browser_1 = require('@angular/platform-browser');
 // import { FormList } from './components/dform-list/dform-list';
 var home_1 = require('./components/home/home');
 var form_store_1 = require('./form-store');
+var http_1 = require('@angular/http');
 var dforms_module_1 = require('./components/dforms/dforms.module');
 var app_component_1 = require('./app.component');
 var app_routing_1 = require('./app.routing');
@@ -25,6 +26,7 @@ var AppModule = (function () {
             imports: [
                 platform_browser_1.BrowserModule,
                 //FormsModule,
+                http_1.HttpModule,
                 app_routing_1.routing,
                 dforms_module_1.DformsModule
             ],

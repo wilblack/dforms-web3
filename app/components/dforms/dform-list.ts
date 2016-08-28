@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormStore } from '../../form-store';
-import Dform from '../dform/dform';
+
+import { Dform } from './dform';
+
 import { addForm } from '../../actions';
 
 @Component({

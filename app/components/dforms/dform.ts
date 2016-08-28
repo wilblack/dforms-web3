@@ -22,10 +22,6 @@ export class Dform {
 
   ngOnInit() {
     console.log("[Dform.ngOnInit()]");
-    this.sub = this.route.params.subscribe(params => {
-       let id = +params['id']; // (+) converts string 'id' to a number
-       console.log("[ngOnInit()] Got id ", id);
-     });
   }
 
   removeForm(form) {
@@ -34,6 +30,5 @@ export class Dform {
 
 
   ngOnDestroy() {
-    this.sub.unsubscribe();
   }
 }

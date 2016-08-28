@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
+import { FormStore, Dform as DformModel} from '../../form-store';
+
+import { getForm } from '../../actions';
 
 @Component({
   selector: 'dform-edit',
@@ -7,13 +12,28 @@ import { Component } from '@angular/core';
 })
 
 export class DformEdit {
-    
-    constructor() {
+    private sub: any;
+    public dform: Dform;
+
+    constructor(private store: FormStore, private route: ActivatedRoute) {
         console.log("[DformEdit.constructor()]");
     }
 
     ngOnInit() {
         console.log("[DformEdit.ngOnInit()]");
+
+        this.sub = this.route.params.subscribe(params => {
+           let id = +params['formId']; // (+) converts string 'id' to a number
+           console.log("[ngOnInit()] Got id ", id);
+
+           this.dform = this.store.getDform(id);
+           console.log("this.dform ", this.dform);
+        });
     }
+
+    ngOnDestroy() {
+        this.sub.unsubscribe();
+    }
+}
 
 }

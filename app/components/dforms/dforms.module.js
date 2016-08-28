@@ -12,8 +12,8 @@ var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
 //import { FormsModule }    from '@angular/forms';
 var dform_list_1 = require('./dform-list');
-var dform_1 = require('./dform');
 var dform_edit_1 = require('./dform-edit');
+var dform_1 = require('./dform');
 var form_store_1 = require('../../form-store');
 var dforms_routing_1 = require('./dforms.routing');
 var DformsModule = (function () {

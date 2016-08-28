@@ -9,12 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
+var form_store_1 = require('../../form-store');
 var DformEdit = (function () {
-    function DformEdit() {
+    function DformEdit(store, route) {
+        this.store = store;
+        this.route = route;
         console.log("[DformEdit.constructor()]");
     }
     DformEdit.prototype.ngOnInit = function () {
+        var _this = this;
         console.log("[DformEdit.ngOnInit()]");
+        this.sub = this.route.params.subscribe(function (params) {
+            var id = +params['formId']; // (+) converts string 'id' to a number
+            console.log("[ngOnInit()] Got id ", id);
+            _this.dform = _this.store.getDform(id);
+            console.log("this.dform ", _this.dform);
+        });
+    };
+    DformEdit.prototype.ngOnDestroy = function () {
+        this.sub.unsubscribe();
     };
     DformEdit = __decorate([
         core_1.Component({
@@ -22,7 +36,7 @@ var DformEdit = (function () {
             templateUrl: 'app/components/dforms/dform-edit.html',
             styleUrls: ['app/components/dforms/dforms.css']
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [form_store_1.FormStore, router_1.ActivatedRoute])
     ], DformEdit);
     return DformEdit;
 }());

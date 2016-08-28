@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var form_store_1 = require('../../form-store');
-var dform_1 = require('../dform/dform');
+var dform_1 = require('./dform');
 var actions_1 = require('../../actions');
 var DformList = (function () {
     function DformList(store) {
@@ -25,7 +25,7 @@ var DformList = (function () {
             selector: 'form-list',
             templateUrl: 'app/components/dforms/dform-list.html',
             styleUrls: ['app/components/dforms/dforms.css'],
-            directives: [dform_1.default]
+            directives: [dform_1.Dform]
         }), 
         __metadata('design:paramtypes', [form_store_1.FormStore])
     ], DformList);

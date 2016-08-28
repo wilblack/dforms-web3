@@ -8,9 +8,12 @@ function reducer(state, action) {
             return state.push({
                 id: action.id,
                 name: action.name,
+                description: action.description,
                 appSlug: '',
                 fields: []
             });
+        case 'GET':
+            return state.get(findIndexById());
         case 'REMOVE':
             return state.delete(findIndexById());
         case 'STAR':
