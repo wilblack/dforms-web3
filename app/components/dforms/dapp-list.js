@@ -10,38 +10,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var form_store_1 = require('../../form-store');
-var dform_1 = require('./dform');
-var dform_form_1 = require('./dform-form/dform-form');
 var dapp_1 = require('./dapp');
-var actions_1 = require('../../actions');
-var DformList = (function () {
-    function DformList(store) {
+var DappList = (function () {
+    function DappList(store) {
         this.store = store;
-        this.formID = 0;
-        this.showDformForm = false;
-        this.newForm = {
-            'id': null,
+        this.showDappForm = false;
+        this.newDapp = {
+            'slug': '',
             'name': '',
             'description': '',
-            'fields': []
+            'version': 1
         };
     }
-    DformList.prototype.addForm = function (form) {
-        if (form.id === undefined)
-            form.id = 1;
-        this.store.dispatch(actions_1.addForm(form.id, form));
-        this.showDformForm = false;
+    DappList.prototype.addDapp = function (form) {
+        // This runs when the user is done filliing out the form and it passed validation.
+        //this.store.dispatch(addDapp(dapp.slug, dapp));
+        this.showDappForm = false;
     };
-    DformList = __decorate([
+    DappList = __decorate([
         core_1.Component({
-            selector: 'form-list',
-            templateUrl: 'app/components/dforms/dform-list.html',
+            selector: 'dapp-list',
+            templateUrl: 'app/components/dforms/dapp-list.html',
             styleUrls: ['app/components/dforms/dforms.css'],
-            directives: [dform_1.Dform, dform_form_1.DformForm, dapp_1.Dapp]
+            directives: [dapp_1.Dapp]
         }), 
         __metadata('design:paramtypes', [form_store_1.FormStore])
-    ], DformList);
-    return DformList;
+    ], DappList);
+    return DappList;
 }());
-exports.DformList = DformList;
-//# sourceMappingURL=dform-list.js.map
+exports.DappList = DappList;
+//# sourceMappingURL=dapp-list.js.map

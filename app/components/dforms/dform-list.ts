@@ -39,13 +39,5 @@ export class DformList {
     this.showDformForm = false;
   }
 
-  newDform(){
 
-    this.showDformForm = true;
-
-  }
-
-  addDform(){
-
-  }
 }

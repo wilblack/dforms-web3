@@ -5,12 +5,12 @@ import { ReactiveFormsModule }    from '@angular/forms';
 import { DformList }    from './dform-list';
 import { DformEdit }  from './dform-edit';
 import { Dform }  from './dform';
+import { DappList }  from './dapp-list';
 import { Dapp }  from './dapp';
 
 
 import { FormStore } from '../../form-store';
 import { dformsRouting } from './dforms.routing';
-
 
 
 import { MdCardModule } from '@angular2-material/card';
@@ -31,6 +31,7 @@ import {MdInputModule} from '@angular2-material/input/input';
   ],
   declarations: [
     DformList,
+    DappList,
     Dform,
     Dapp,
     DformEdit,
