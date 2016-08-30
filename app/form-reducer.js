@@ -1,29 +1,13 @@
 "use strict";
-var Immutable = require('immutable');
-function reducer(state, action) {
-    if (state === void 0) { state = Immutable.List(); }
+var redux_1 = require('redux');
+function dformReducer(state, action) {
     console.log("[form-reducer] action: ", action);
     switch (action.type) {
-        case 'ADD':
-            return state.push({
-                id: action.id,
-                name: action.name,
-                description: action.description,
-                appSlug: '',
-                fields: []
-            });
-        case 'GET':
-            return state.get(findIndexById());
-        case 'REMOVE':
+        case 'ADD_DFORM':
+            state.get('dforms').push(action.form);
+            return state;
+        case 'REMOVE_DFORM':
             return state.delete(findIndexById());
-        case 'STAR':
-            return state.update(findIndexById(), function (form) {
-                return {
-                    id: form.id,
-                    name: form.name,
-                    star: !form.star
-                };
-            });
         default:
             return state;
     }
@@ -31,5 +15,22 @@ function reducer(state, action) {
         return state.findIndex(function (form) { return form.id === action.id; });
     }
 }
-exports.reducer = reducer;
+exports.dformReducer = dformReducer;
+function appReducer(state, action) {
+    console.log("[appReducer] action: ", action);
+    switch (action.type) {
+        case 'ADD_APP':
+            state.get('apps').push(action.app);
+            return state;
+        default:
+            return state;
+    }
+}
+exports.appReducer = appReducer;
+var reducers = redux_1.combineReducers({
+    dformReducer: dformReducer,
+    appReducer: appReducer
+});
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = reducers;
 //# sourceMappingURL=form-reducer.js.map

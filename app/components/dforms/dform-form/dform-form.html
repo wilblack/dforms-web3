@@ -1,0 +1,53 @@
+<form  [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup)" novalidate>
+    <h2>Form Info</h2>
+    <div>
+        <md-input  
+                id="name"
+                style="width: 100%"
+                name="name"
+                maxlength="60"
+                class="form-control" 
+                type="text"
+                placeholder="Form Name"
+                formControlName="name"
+                required
+                >
+            <md-hint align="end">
+                This is the name of the form that will be used in the app.
+            </md-hint>
+        </md-input>    
+
+        <md-input  id="description"
+                   style="width: 100%"
+                   name="description"
+                   formControlName="description"
+                   class="form-control" 
+                   type="text"
+                   placeholder="Form Description"
+                >
+            <md-hint align="end">
+                A short description of what this form is for. This will be used as an explanation of the form in the app.
+            </md-hint>
+        </md-input>
+    </div>
+
+
+
+    <div class="form-group row">
+        <label for="type" class="col-xs-2 col-form-label">Included in Apps</label>
+        <div class="col-xs-10">
+            <select  id="apps"
+                    name="apps"
+                    formControlName="apps"
+                    class="form-control" 
+                    multiple>
+                    <option *ngFor="let item of store.dapps" [value]="item.slug">{{item.name}}</option>
+            </select>
+        </div>
+        <div class="col-xs-10 col-xs-offset-2 help-text">The UI widget used to collect this field</div>
+    </div>
+
+
+    <input md-button type="submit" class="btn" value="Save">
+    <span class="error-text" [hidden]="!showFormErrors" >There are errors.</span>
+</form>

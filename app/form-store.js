@@ -10,32 +10,53 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var Immutable = require('immutable');
 var redux_1 = require('redux');
-var form_reducer_1 = require('./form-reducer');
+var reducers_1 = require('./reducers');
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 var actions_1 = require('./actions');
+var DappModel = (function () {
+    function DappModel() {
+    }
+    return DappModel;
+}());
+exports.DappModel = DappModel;
 var Dform = (function () {
     function Dform() {
     }
     return Dform;
 }());
 exports.Dform = Dform;
+var initialState = Immutable.Map({
+    dforms: [],
+    apps: []
+});
 var FormStore = (function () {
     function FormStore(http) {
         var _this = this;
-        this.store = redux_1.createStore(form_reducer_1.reducer, Immutable.List());
+        //store = createStore(reducer, Immutable.List<Dform>());
+        this.store = redux_1.createStore(reducers_1.default, initialState);
         var formsSub = http.get("/app/components/dforms/mock_data.json")
             .map(function (response) { return response.json(); });
         formsSub.subscribe(function (res) {
             console.log("[DForm constructor()]got the forms and put them in Dform Store ", res);
-            res.forEach(function (form) {
-                _this.dispatch(actions_1.addForm(form.name, form.id, form.description));
+            res.dforms.forEach(function (form) {
+                _this.dispatch(actions_1.addForm(form.id, form));
+            });
+            res.dapps.forEach(function (app) {
+                _this.dispatch(actions_1.addApp(app.slug, app));
             });
         }, function (err) { return console.log("Error getting forms", err); });
     }
-    Object.defineProperty(FormStore.prototype, "forms", {
+    Object.defineProperty(FormStore.prototype, "dforms", {
         get: function () {
-            return this.store.getState();
+            return this.store.getState().get("dforms");
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(FormStore.prototype, "dapps", {
+        get: function () {
+            return this.store.getState().get("apps");
         },
         enumerable: true,
         configurable: true

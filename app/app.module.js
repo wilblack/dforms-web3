@@ -10,7 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
-//import { FormsModule }    from '@angular/forms';
+var forms_1 = require('@angular/forms');
 // import { FormList } from './components/dform-list/dform-list';
 var home_1 = require('./components/home/home');
 var form_store_1 = require('./form-store');
@@ -25,6 +25,7 @@ var sidenav_1 = require('@angular2-material/sidenav/sidenav');
 var icon_1 = require('@angular2-material/icon/icon');
 var list_1 = require('@angular2-material/list/list');
 var grid_list_1 = require('@angular2-material/grid-list/grid-list');
+var input_1 = require('@angular2-material/input/input');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -32,7 +33,8 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [
                 platform_browser_1.BrowserModule,
-                //FormsModule,
+                forms_1.FormsModule,
+                forms_1.ReactiveFormsModule,
                 http_1.HttpModule,
                 app_routing_1.routing,
                 dforms_module_1.DformsModule,
@@ -42,11 +44,11 @@ var AppModule = (function () {
                 sidenav_1.MdSidenavModule,
                 icon_1.MdIconModule,
                 list_1.MdListModule,
-                grid_list_1.MdGridListModule
+                grid_list_1.MdGridListModule,
+                input_1.MdInputModule
             ],
             declarations: [
                 app_component_1.AppComponent,
-                //FormList,
                 home_1.Home
             ],
             providers: [

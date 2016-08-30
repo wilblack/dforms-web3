@@ -2,7 +2,10 @@
     <md-card-title class="heading--name">{{ form.name }}</md-card-title>
 
     <md-card-content>
-        {{ form.description }}
+        <p>{{ form.description }}</p>
+        <div>{{ form.version }}</div>
+        <span *ngFor="let dapp of form.apps">{{dapp}} | </span>
+
     </md-card-content>
     <md-card-actions>
 

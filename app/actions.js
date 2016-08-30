@@ -1,25 +1,25 @@
 "use strict";
-function addForm(name, id, description) {
+function addForm(id, form) {
     return {
-        type: 'ADD',
+        type: 'ADD_DFORM',
         id: id,
-        name: name,
-        description: description
+        form: form
     };
 }
 exports.addForm = addForm;
 function removeForm(id) {
     return {
-        type: 'REMOVE',
+        type: 'REMOVE_DFORM',
         id: id
     };
 }
 exports.removeForm = removeForm;
-function starForm(id) {
+function addApp(slug, app) {
     return {
-        type: 'STAR',
-        id: id
+        type: 'ADD_DAPP',
+        slug: slug,
+        app: app
     };
 }
-exports.starForm = starForm;
+exports.addApp = addApp;
 //# sourceMappingURL=actions.js.map

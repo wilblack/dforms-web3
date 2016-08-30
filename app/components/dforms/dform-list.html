@@ -1,24 +1,32 @@
 <header>
-    Your Forms
+    <h2>
+      <button md-fab (click)="newDform();">
+        <i class="material-icons">add</i>
+      </button>
+      Your Forms
+    </h2>
 </header>
+
+
+<div *ngIf="showDformForm">
+  <dform-form dform="newForm" (close)="addForm($event);"></dform-form>
+</div>
+
+<h2>Forms</h2>
 <md-grid-list cols="3" md-gutter="5px">
-   <md-grid-tile *ngFor="let form of store.forms">
+   <md-grid-tile *ngFor="let form of store.dforms">
      <dform [form]="form"></dform>
    </md-grid-tile>
-   
 </md-grid-list>
 
+<h2>Apps</h2>
+<md-grid-list cols="3" md-gutter="5px">
+   <md-grid-tile *ngFor="let dapp of store.dapps">
+     <dapp [app]="dapp"></dapp>
+   </md-grid-tile>
+</md-grid-list>
 
-
-<div id="container">
-    <header>
-        Your Forms
-    </header>
-    <input #newForm class="add-form" placeholder="Add Form"
-          (keyup.enter)="addForm(newForm.value); newForm.value='' ">
-    <ul class="form-list">
-      <li *ngFor="let form of store.forms">
-        <dform [form]="form"></dform>
-      </li>
-    </ul>
-</div>
+<pre>
+  {{ store.dapps | json}}
+  {{ store.dforms | json}}
+</pre>

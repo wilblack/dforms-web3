@@ -11,21 +11,38 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var form_store_1 = require('../../form-store');
 var dform_1 = require('./dform');
+var dform_form_1 = require('./dform-form/dform-form');
+var dapp_1 = require('./dapp');
 var actions_1 = require('../../actions');
 var DformList = (function () {
     function DformList(store) {
         this.store = store;
         this.formID = 0;
+        this.showDformForm = false;
+        this.newForm = {
+            'id': null,
+            'name': '',
+            'description': '',
+            'fields': []
+        };
     }
     DformList.prototype.addForm = function (form) {
-        this.store.dispatch(actions_1.addForm(form, this.formID++, "Description Goes Here"));
+        if (form.id === undefined)
+            form.id = 1;
+        this.store.dispatch(actions_1.addForm(form.id, form));
+        this.showDformForm = false;
+    };
+    DformList.prototype.newDform = function () {
+        this.showDformForm = true;
+    };
+    DformList.prototype.addDform = function () {
     };
     DformList = __decorate([
         core_1.Component({
             selector: 'form-list',
             templateUrl: 'app/components/dforms/dform-list.html',
             styleUrls: ['app/components/dforms/dforms.css'],
-            directives: [dform_1.Dform]
+            directives: [dform_1.Dform, dform_form_1.DformForm, dapp_1.Dapp]
         }), 
         __metadata('design:paramtypes', [form_store_1.FormStore])
     ], DformList);

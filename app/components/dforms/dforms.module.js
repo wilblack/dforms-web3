@@ -10,15 +10,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var common_1 = require('@angular/common');
-//import { FormsModule }    from '@angular/forms';
+var forms_1 = require('@angular/forms');
 var dform_list_1 = require('./dform-list');
 var dform_edit_1 = require('./dform-edit');
 var dform_1 = require('./dform');
+var dapp_1 = require('./dapp');
 var form_store_1 = require('../../form-store');
 var dforms_routing_1 = require('./dforms.routing');
 var card_1 = require('@angular2-material/card');
 var button_1 = require('@angular2-material/button');
 var grid_list_1 = require('@angular2-material/grid-list/grid-list');
+var input_1 = require('@angular2-material/input/input');
 var DformsModule = (function () {
     function DformsModule() {
     }
@@ -26,16 +28,19 @@ var DformsModule = (function () {
         core_1.NgModule({
             imports: [
                 common_1.CommonModule,
-                //FormsModule,
+                // FormsModule,
+                forms_1.ReactiveFormsModule,
                 dforms_routing_1.dformsRouting,
                 card_1.MdCardModule,
                 button_1.MdButtonModule,
-                grid_list_1.MdGridListModule
+                grid_list_1.MdGridListModule,
+                input_1.MdInputModule
             ],
             declarations: [
                 dform_list_1.DformList,
                 dform_1.Dform,
-                dform_edit_1.DformEdit
+                dapp_1.Dapp,
+                dform_edit_1.DformEdit,
             ],
             providers: [
                 form_store_1.FormStore

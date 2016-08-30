@@ -1,31 +1,42 @@
+import { Dform as DformModel, DappModel} from './form-store';
+
 
 export interface IFormAction {
   type: string;
   id: number;
-  name?: string;
-  description?: string;
+  form?: DformModel;
 }
 
-export function addForm(name: string, id: number, description: string): IFormAction {
+export interface IAppAction {
+  type: string;
+  slug: string;
+  app?: AppModel;
+}
+
+
+export function addForm(id: number, form: DformModel): IFormAction {
   return {
-    type: 'ADD',
+    type: 'ADD_DFORM',
     id,
-    name,
-    description
+    form
   };
 }
 
 
 export function removeForm(id: number): IFormAction {
   return {
-    type: 'REMOVE',
+    type: 'REMOVE_DFORM',
     id
   };
 }
 
-export function starForm(id: number): IFormAction {
+
+
+
+export function addApp(slug: string, app: AppModel): IAppAction {
   return {
-    type: 'STAR',
-    id
+    type: 'ADD_DAPP',
+    slug,
+    app
   };
 }

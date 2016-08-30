@@ -1,6 +1,6 @@
 import { NgModule }       from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
-//import { FormsModule }    from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }    from '@angular/forms';
 
 // import { FormList } from './components/dform-list/dform-list';
 import { Home } from './components/home/home';
@@ -20,12 +20,13 @@ import {MdSidenavModule} from '@angular2-material/sidenav/sidenav';
 import {MdIconModule} from '@angular2-material/icon/icon';
 import {MdListModule} from '@angular2-material/list/list';
 import {MdGridListModule} from '@angular2-material/grid-list/grid-list';
-
+import {MdInputModule} from '@angular2-material/input/input';
 
 @NgModule({
   imports: [
     BrowserModule,
-    //FormsModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     routing,
     DformsModule,
@@ -35,12 +36,11 @@ import {MdGridListModule} from '@angular2-material/grid-list/grid-list';
     MdSidenavModule,
     MdIconModule,
     MdListModule,
-    MdGridListModule
+    MdGridListModule,
+    MdInputModule
   ],
   declarations: [
     AppComponent,
-    
-    //FormList,
     Home
   ],
   providers: [

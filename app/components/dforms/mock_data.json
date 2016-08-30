@@ -1,131 +1,157 @@
-[
-    {
-        "appSlug": "acme",
-        "id": 1,
-        "name": "Acme",
-        "description": "This is the ACME app!",
-        "couchDbUrl": "http://couchdb.solalla.com:5984/acme-db",
-        "orgName": "Acme Corp.",
-        "entryName": "Entry",
-        "entryNamePlural": "Grabs",
-        "supportEmail": "support@acmecorp.test",
-        "version": "0.1.0",
-        "homeText": "This is the home text for ACME app!",
-        "requireGridId": false,
-        "gridLabel": "Area",
-        "fields": [
-            {
-                "type": "text",
-                "slug": "question1",
-                "label": "Question 1",
-                "helpText": "Add your data here",
-                "required": true
-            },
-            {
-                "slug": "question2",
-                "type": "single-select",
-                "label": "Question 2",
-                "helpText": "Click here for drop-down menu",
-                "required": false,
-                "options": [
-                  {"label": "Option 1", "value": "option1"},
-                  {"label": "Option 2", "value": "option2"}
-                ]
-            },
-            {
-                "type": "single-select",
-                "slug": "question3",
-                "label": "Question 3",
-                "helpText": "Click here for drop-down menu",
-                "required": true,
-                "options": [
-                  {"label": "Option 3", "value": "option3"},
-                  {"label": "Option 4", "value": "option4"}
-                ]
-            },
-            {
+{
+    "dapps": [
+        {
+            "name": "Inventory App",
+            "slug": "app-1",
+            "description": "Description goes here",
+            "supportEmail": "",
+            "version": "0.1.0"
+        },
+        {
+            "name": "Survey App",
+            "slug": "app-2",
+            "description": "Description goes here",
+            "supportEmail": "",
+            "version": "0.1.0"
+        },
+        {
+            "name": "Citizen Science App",
+            "slug": "app-2",
+            "description": "Description goes here",
+            "supportEmail": "",
+            "version": "0.1.0"
+        }
+
+    ],
+    "dforms":[
+        {
+            "appSlug": "acme",
+            "id": 1,
+            "name": "Acme",
+            "description": "This is the ACME app!",
+            "couchDbUrl": "http://couchdb.solalla.com:5984/acme-db",
+            "orgName": "Acme Corp.",
+            "entryName": "Entry",
+            "entryNamePlural": "Grabs",
+            "supportEmail": "support@acmecorp.test",
+            "version": "0.1.0",
+            "homeText": "This is the home text for ACME app!",
+            "requireGridId": false,
+            "gridLabel": "Area",
+            "fields": [
+                {
+                    "type": "text",
+                    "slug": "question1",
+                    "label": "Question 1",
+                    "helpText": "Add your data here",
+                    "required": true
+                },
+                {
+                    "slug": "question2",
+                    "type": "single-select",
+                    "label": "Question 2",
+                    "helpText": "Click here for drop-down menu",
+                    "required": false,
+                    "options": [
+                      {"label": "Option 1", "value": "option1"},
+                      {"label": "Option 2", "value": "option2"}
+                    ]
+                },
+                {
+                    "type": "single-select",
+                    "slug": "question3",
+                    "label": "Question 3",
+                    "helpText": "Click here for drop-down menu",
+                    "required": true,
+                    "options": [
+                      {"label": "Option 3", "value": "option3"},
+                      {"label": "Option 4", "value": "option4"}
+                    ]
+                },
+                {
+                    "type": "number",
+                    "slug": "question4",
+                    "label": "Question 4",
+                    "helpText": "Enter a number from 0 - 100",
+                    "required": true
+                }
+            ]
+        },
+        {
+            "appSlug": "pga-wannabe",
+            "id": 2,
+            "name": "PGA Wannabe",
+            "description": "This is the pga-wannabe app!",
+            "corgName": "My PGA",
+            "entryName": "hole",
+            "entryNamePlural": "Grabs",
+            "supportEmail": "support@acmecorp.test",
+            "supportEmail": "support@pga.test",
+            "version": "0.1.0",
+            "homeText": "This is the home text for pga-wannabe app!",
+            "requireGridId": false,
+            "gridLabel": "Area",
+            "fields": [
+              {
                 "type": "number",
-                "slug": "question4",
-                "label": "Question 4",
-                "helpText": "Enter a number from 0 - 100",
+                "slug": "player1",
+                "label": "Player 1 score",
+                "helpText": "Place your score here",
                 "required": true
-            }
-        ]
-    },
-    {
-        "appSlug": "pga-wannabe",
-        "id": 2,
-        "name": "PGA Wannabe",
-        "description": "This is the pga-wannabe app!",
-        "corgName": "My PGA",
-        "entryName": "hole",
-        "entryNamePlural": "Grabs",
-        "supportEmail": "support@acmecorp.test",
-        "supportEmail": "support@pga.test",
-        "version": "0.1.0",
-        "homeText": "This is the home text for pga-wannabe app!",
-        "requireGridId": false,
-        "gridLabel": "Area",
-        "fields": [
-          {
-            "type": "number",
-            "slug": "player1",
-            "label": "Player 1 score",
-            "helpText": "Place your score here",
-            "required": true
-          },
-          {
-            "type": "number",
-            "slug": "player2",
-            "label": "Player 2 score",
-            "helpText": "Place your score here",
-            "required": false
-          },
-          {
-            "type": "number",
-            "slug": "player3",
-            "label": "Player 3 score",
-            "helpText": "Place your score here",
-            "required": false
-          },
-          {
-            "type": "number",
-            "slug": "player4",
-            "label": "Player 4 score",
-            "helpText": "Place your score here",
-            "required": false
-          }
-        ]
-    },
-    {
-        "appSlug": "henkel",
-        "id": 3,
-        "name": "Henkel Cruise 2016",
-        "description": "A data collection app for the Henkel Lab cruise in June, 2016",
-        "couchDbUrl": "http://couchdb.solalla.com:5984/acme-db",
-        "orgName": "Henkel Lab",
-        "entryName": "Grab",
-        "entryNamePlural": "Grabs",
-        "supportEmail": "skh.black@gmail.com",
-        "version": "1",
-        "homeText": "Take a sighiting at each core grab. The app will automatically record GPS data at each point.",
-        "requireGridId": false,
-        "gridLabel": "Area",
-        "fields": [
-          {
-            "type": "number",
-            "slug": "waterDepth",
-            "label": "Water Depth (m)",
-            "helpText": "",
-            "required": true
-          },
-          {
-            "slug": "penetrationDepth",
-            "type": "number",
-            "label": "Penetration Depth (cm)",
-            "helpText": "",
-            "required": true
-          }
-        ]
-    }
-]
+              },
+              {
+                "type": "number",
+                "slug": "player2",
+                "label": "Player 2 score",
+                "helpText": "Place your score here",
+                "required": false
+              },
+              {
+                "type": "number",
+                "slug": "player3",
+                "label": "Player 3 score",
+                "helpText": "Place your score here",
+                "required": false
+              },
+              {
+                "type": "number",
+                "slug": "player4",
+                "label": "Player 4 score",
+                "helpText": "Place your score here",
+                "required": false
+              }
+            ]
+        },
+        {
+            "appSlug": "henkel",
+            "id": 3,
+            "name": "Henkel Cruise 2016",
+            "description": "A data collection app for the Henkel Lab cruise in June, 2016",
+            "couchDbUrl": "http://couchdb.solalla.com:5984/acme-db",
+            "orgName": "Henkel Lab",
+            "entryName": "Grab",
+            "entryNamePlural": "Grabs",
+            "supportEmail": "skh.black@gmail.com",
+            "version": "1",
+            "homeText": "Take a sighiting at each core grab. The app will automatically record GPS data at each point.",
+            "requireGridId": false,
+            "gridLabel": "Area",
+            "fields": [
+              {
+                "type": "number",
+                "slug": "waterDepth",
+                "label": "Water Depth (m)",
+                "helpText": "",
+                "required": true
+              },
+              {
+                "slug": "penetrationDepth",
+                "type": "number",
+                "label": "Penetration Depth (cm)",
+                "helpText": "",
+                "required": true
+              }
+            ]
+        }
+    ]
+}

@@ -1,10 +1,11 @@
 import { NgModule }       from '@angular/core';
 import { CommonModule }   from '@angular/common';
-//import { FormsModule }    from '@angular/forms';
+import { ReactiveFormsModule }    from '@angular/forms';
 
 import { DformList }    from './dform-list';
 import { DformEdit }  from './dform-edit';
 import { Dform }  from './dform';
+import { Dapp }  from './dapp';
 
 
 import { FormStore } from '../../form-store';
@@ -15,20 +16,25 @@ import { dformsRouting } from './dforms.routing';
 import { MdCardModule } from '@angular2-material/card';
 import { MdButtonModule } from '@angular2-material/button';
 import { MdGridListModule } from '@angular2-material/grid-list/grid-list';
+import {MdInputModule} from '@angular2-material/input/input';
 
 @NgModule({
   imports: [
     CommonModule,
-    //FormsModule,
+    // FormsModule,
+    ReactiveFormsModule,
     dformsRouting,
     MdCardModule,
     MdButtonModule,
-    MdGridListModule
+    MdGridListModule,
+    MdInputModule
   ],
   declarations: [
     DformList,
     Dform,
-    DformEdit
+    Dapp,
+    DformEdit,
+    // REACTIVE_FORM_DIRECTIVES
   ],
   providers: [
     FormStore
