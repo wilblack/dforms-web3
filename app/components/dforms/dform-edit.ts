@@ -25,8 +25,13 @@ export class DformEdit {
            let id = +params['formId']; // (+) converts string 'id' to a number
            console.log("[ngOnInit()] Got id ", id);
 
-           this.dform = this.store.getDform(id);
-           console.log("this.dform ", this.dform);
+           //this.dform = this.store.dforms.find( form => form.id === id);
+           this.store.getDform(id)
+             .subscribe(res => {
+               this.dform = res;
+               console.log("setting this.dform to ", res);
+             });
+           //console.log("this.dform ", this.dform);
         });
     }
 

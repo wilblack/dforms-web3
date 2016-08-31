@@ -16,6 +16,7 @@ var dform_edit_1 = require('./dform-edit');
 var dform_1 = require('./dform');
 var dapp_list_1 = require('./dapp-list');
 var dapp_1 = require('./dapp');
+var dfield_1 = require('./dfield');
 var form_store_1 = require('../../form-store');
 var dforms_routing_1 = require('./dforms.routing');
 var card_1 = require('@angular2-material/card');
@@ -42,6 +43,7 @@ var DformsModule = (function () {
                 dapp_list_1.DappList,
                 dform_1.Dform,
                 dapp_1.Dapp,
+                dfield_1.Dfield,
                 dform_edit_1.DformEdit,
             ],
             providers: [

@@ -1,32 +1,28 @@
-<header>
-    <h2>
-      <button md-fab (click)="this.showDformForm = true;">
-        <i class="material-icons">add</i>
-      </button>
-      Your Forms
-    </h2>
-</header>
+
+<div class="content-wrapper">
+  <h2>
+    <button md-fab (click)="this.showDformForm = true;">
+      <i class="material-icons">add</i>
+    </button>
+    Your Forms
+  </h2>
 
 
-<div *ngIf="showDformForm">
-  <dform-form dform="newForm" (close)="addForm($event);"></dform-form>
+
+  <div *ngIf="showDformForm">
+    <dform-form dform="newForm" (close)="addForm($event);"></dform-form>
+  </div>
+
+  <h2>Forms</h2>
+  <md-grid-list cols="3" md-gutter="5px">
+     <md-grid-tile *ngFor="let form of store.dforms">
+       <dform [form]="form"></dform>
+     </md-grid-tile>
+  </md-grid-list>
+
+
+
+  <pre>
+    {{ store.dforms | json}}
+  </pre>
 </div>
-
-<h2>Forms</h2>
-<md-grid-list cols="3" md-gutter="5px">
-   <md-grid-tile *ngFor="let form of store.dforms">
-     <dform [form]="form"></dform>
-   </md-grid-tile>
-</md-grid-list>
-
-<h2>Apps</h2>
-<md-grid-list cols="3" md-gutter="5px">
-   <md-grid-tile *ngFor="let dapp of store.dapps">
-     <dapp [app]="dapp"></dapp>
-   </md-grid-tile>
-</md-grid-list>
-
-<pre>
-  {{ store.dapps | json}}
-  {{ store.dforms | json}}
-</pre>

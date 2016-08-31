@@ -31,13 +31,17 @@
             "description": "This is the ACME app!",
             "couchDbUrl": "http://couchdb.solalla.com:5984/acme-db",
             "orgName": "Acme Corp.",
-            "entryName": "Entry",
-            "entryNamePlural": "Grabs",
+            "settings": {
+                "recordName": "Entry",
+                "recordNamePlural": "Grabs",
+                "map": {
+                    "requireGridId": false,
+                    "gridLabel": "Area"
+                }
+            },
             "supportEmail": "support@acmecorp.test",
             "version": "0.1.0",
             "homeText": "This is the home text for ACME app!",
-            "requireGridId": false,
-            "gridLabel": "Area",
             "fields": [
                 {
                     "type": "text",
@@ -52,7 +56,7 @@
                     "label": "Question 2",
                     "helpText": "Click here for drop-down menu",
                     "required": false,
-                    "options": [
+                    "choices": [
                       {"label": "Option 1", "value": "option1"},
                       {"label": "Option 2", "value": "option2"}
                     ]
@@ -63,7 +67,7 @@
                     "label": "Question 3",
                     "helpText": "Click here for drop-down menu",
                     "required": true,
-                    "options": [
+                    "choices": [
                       {"label": "Option 3", "value": "option3"},
                       {"label": "Option 4", "value": "option4"}
                     ]
@@ -82,15 +86,18 @@
             "id": 2,
             "name": "PGA Wannabe",
             "description": "This is the pga-wannabe app!",
-            "corgName": "My PGA",
-            "entryName": "hole",
-            "entryNamePlural": "Grabs",
+            "orgName": "My PGA",
+            "settings": {
+                "recordName": "hole",
+                "recordNamePlural": "Grabs",
+                "map": {
+                    "requireGridId": false,
+                    "gridLabel": "Area"
+                }
+            },
             "supportEmail": "support@acmecorp.test",
-            "supportEmail": "support@pga.test",
             "version": "0.1.0",
             "homeText": "This is the home text for pga-wannabe app!",
-            "requireGridId": false,
-            "gridLabel": "Area",
             "fields": [
               {
                 "type": "number",
@@ -129,13 +136,17 @@
             "description": "A data collection app for the Henkel Lab cruise in June, 2016",
             "couchDbUrl": "http://couchdb.solalla.com:5984/acme-db",
             "orgName": "Henkel Lab",
-            "entryName": "Grab",
-            "entryNamePlural": "Grabs",
+            "settings": {
+                "recordName": "Grab",
+                "recordNamePlural": "Grabs",
+                "map":{
+                    "requireGridId": false,
+                    "gridLabel": "Area"
+                }
+            },
             "supportEmail": "skh.black@gmail.com",
             "version": "1",
             "homeText": "Take a sighiting at each core grab. The app will automatically record GPS data at each point.",
-            "requireGridId": false,
-            "gridLabel": "Area",
             "fields": [
               {
                 "type": "number",

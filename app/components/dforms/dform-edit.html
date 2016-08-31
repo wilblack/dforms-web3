@@ -1,4 +1,92 @@
-Form Editor: 
-<h2>{{ dform.name }}</h2>
+<div class="content-wrapper">
+<h2>
+  <small>Editing</small> {{ dform?.name }} <small>version {{ dform?.version }}</small>
+</h2>
+
+<form>
+    <md-input  
+            id="name"
+            style="width: 100%"
+            name="name"
+            maxlength="60"
+            class="form-control" 
+            type="text"
+            placeholder="Form Name"
+            value="{{dform?.name}}"
+            required
+            >
+        <md-hint align="end">
+            This is the name of the form that will be used in the app.
+        </md-hint>
+    </md-input>    
+
+    <md-input  id="description"
+               style="width: 100%"
+               name="description"
+               class="form-control" 
+               type="text"
+               value="{{dform?.description}}"
+               placeholder="Form Description"
+            >
+        <md-hint align="end">
+            A short description of what this form is for. This will be used as an explanation of the form in the app.
+        </md-hint>
+    </md-input>
+
+    <md-input  id="recordName"
+               style="width: 40%"
+               name="recordName"
+               class="form-control" 
+               type="text"
+               value="{{dform?.settings?.recordName}}"
+               placeholder="Record Name"
+            >
+        <md-hint align="end">
+        </md-hint>
+    </md-input>
+
+    <md-input  id="recordNamePlural"
+       style="width: 40%"
+       name="recordNamePlural"
+       class="form-control" 
+       type="text"
+       value="{{dform?.settings?.recordNamePlural}}"
+       placeholder="Record Name Plural"
+    >
+        <md-hint align="end">
+        </md-hint>
+    </md-input>
+
+    <md-input  id="homeText"
+       style="width: 100%"
+       name="homeText"
+       class="form-control" 
+       type="text"
+       value="{{dform?.homeText}}"
+       placeholder="Home screen text"
+    >
+        <md-hint align="end">
+        </md-hint>
+    </md-input>
+</form>
+
+<div *ngIf="showDformForm">
+  <dform-form dform="newForm" (close)="addForm($event);"></dform-form>
+</div>
+
+<h3>Fields</h3>
+
+<md-list cols="1" md-gutter="5px">
+   <md-list-item *ngFor="let field of dform?.fields" >
+    <dfield class="margin-bottom" [dfield]="field"></dfield>
+   </md-list-item>
+</md-list>
+
+<pre>
+  {{ store.dforms | json}}
+</pre>
 
 
+
+{{ dform | json }}
+</div>

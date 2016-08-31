@@ -23,8 +23,13 @@ var DformEdit = (function () {
         this.sub = this.route.params.subscribe(function (params) {
             var id = +params['formId']; // (+) converts string 'id' to a number
             console.log("[ngOnInit()] Got id ", id);
-            _this.dform = _this.store.getDform(id);
-            console.log("this.dform ", _this.dform);
+            //this.dform = this.store.dforms.find( form => form.id === id);
+            _this.store.getDform(id)
+                .subscribe(function (res) {
+                _this.dform = res;
+                console.log("setting this.dform to ", res);
+            });
+            //console.log("this.dform ", this.dform);
         });
     };
     DformEdit.prototype.ngOnDestroy = function () {

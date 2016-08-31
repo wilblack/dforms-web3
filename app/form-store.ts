@@ -3,6 +3,7 @@ import Immutable = require('immutable');
 import { createStore } from 'redux';
 import { IFormAction } from './actions';
 import  reducer from './reducers';
+import {BehaviorSubject} from 'rxjs/BehaviorSubject'; 
 
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
@@ -10,12 +11,13 @@ import { Http } from '@angular/http';
 import { addForm, addApp } from './actions';
 
 
-export interface Field {
+export interface DfieldModel {
   type: string;
   slug: string; 
   label: string;
   helpText: string;
   required: boolean;
+  choices: any;
 }
 
 export class DappModel {
@@ -24,7 +26,6 @@ export class DappModel {
   description: string;
   supportEmail: string;
   version: string;
-
 }
 
 export class Dform {
@@ -36,8 +37,6 @@ export class Dform {
   version: string;
 }
 
-
-
 const initialState = Immutable.Map({
   dforms: [],
   apps: []
@@ -48,12 +47,14 @@ export class FormStore {
 
   //store = createStore(reducer, Immutable.List<Dform>());
   store = createStore(reducer, initialState);
-  
+  formsSub: any;
+  stateLoaded: boolean
   constructor(http: Http){
-    let formsSub = http.get("/app/components/dforms/mock_data.json")
+    this.stateLoaded = false;
+    this.formsSub = http.get("/app/components/dforms/mock_data.json")
       .map(response => response.json());
 
-    formsSub.subscribe(
+    this.formsSub.subscribe(
       res => {
       
         console.log("[DForm constructor()]got the forms and put them in Dform Store ", res);
@@ -64,7 +65,7 @@ export class FormStore {
         res.dapps.forEach( app => {
           this.dispatch(addApp(app.slug, app))
         })
-
+        this.stateLoaded = true;
       },
       err => console.log("Error getting forms", err)
     );
@@ -78,8 +79,26 @@ export class FormStore {
     return this.store.getState().get("apps");
   }
 
-  getDform(id: number): Dform {
-    return this.forms.find( form => form.id === id);
+  getDform(id: number): any {
+    
+    if (this.stateLoaded === true){
+      let res = this.dforms.find( form => form.id === id);
+      var subject = new BehaviorSubject(res);
+      return subject;
+      //return this.dforms.find( form => form.id === id);
+
+      return observable
+    } else {
+
+      return this.formsSub.map(
+        res => {
+          let out = res.dforms.find( form => form.id === id);
+          console.log("Returning ", out);
+          return out;
+        }
+      )
+    }
+    
   }
 
   dispatch(action: any) {

@@ -7,7 +7,7 @@ import { DformEdit }  from './dform-edit';
 import { Dform }  from './dform';
 import { DappList }  from './dapp-list';
 import { Dapp }  from './dapp';
-
+import { Dfield }  from './dfield';
 
 import { FormStore } from '../../form-store';
 import { dformsRouting } from './dforms.routing';
@@ -34,6 +34,7 @@ import {MdInputModule} from '@angular2-material/input/input';
     DappList,
     Dform,
     Dapp,
+    Dfield,
     DformEdit,
     // REACTIVE_FORM_DIRECTIVES
   ],

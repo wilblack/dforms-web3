@@ -1,0 +1,21 @@
+<md-card class="margin-bottom">
+    <md-card-title class="heading--name">{{ dfield.label }}</md-card-title>
+    <md-card-content>
+        <p>{{ dfield.helpText }}</p>
+        <p>{{ dfield.type }}</p>
+        
+        <ul>
+            <li *ngFor="let choice of choices">{{ dfield.choices }}</li>
+        </ul>
+
+    </md-card-content>
+    <md-card-actions>
+        <button md-button [routerLink]="['/dfield-edit', dfield.slug]" class="form-action">
+            <i class="fa fa-edit fa-2x "></i>
+        </button>
+        
+        <button md-button class="form-action" (click)="removeApp(app)">
+            <i class="fa fa-trash fa-2x"></i>
+        </button>
+    </md-card-actions>
+</md-card>

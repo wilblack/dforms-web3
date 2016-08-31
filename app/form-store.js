@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var Immutable = require('immutable');
 var redux_1 = require('redux');
 var reducers_1 = require('./reducers');
+var BehaviorSubject_1 = require('rxjs/BehaviorSubject');
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 var actions_1 = require('./actions');
@@ -35,9 +36,10 @@ var FormStore = (function () {
         var _this = this;
         //store = createStore(reducer, Immutable.List<Dform>());
         this.store = redux_1.createStore(reducers_1.default, initialState);
-        var formsSub = http.get("/app/components/dforms/mock_data.json")
+        this.stateLoaded = false;
+        this.formsSub = http.get("/app/components/dforms/mock_data.json")
             .map(function (response) { return response.json(); });
-        formsSub.subscribe(function (res) {
+        this.formsSub.subscribe(function (res) {
             console.log("[DForm constructor()]got the forms and put them in Dform Store ", res);
             res.dforms.forEach(function (form) {
                 _this.dispatch(actions_1.addForm(form.id, form));
@@ -45,6 +47,7 @@ var FormStore = (function () {
             res.dapps.forEach(function (app) {
                 _this.dispatch(actions_1.addApp(app.slug, app));
             });
+            _this.stateLoaded = true;
         }, function (err) { return console.log("Error getting forms", err); });
     }
     Object.defineProperty(FormStore.prototype, "dforms", {
@@ -62,7 +65,20 @@ var FormStore = (function () {
         configurable: true
     });
     FormStore.prototype.getDform = function (id) {
-        return this.forms.find(function (form) { return form.id === id; });
+        if (this.stateLoaded === true) {
+            var res = this.dforms.find(function (form) { return form.id === id; });
+            var subject = new BehaviorSubject_1.BehaviorSubject(res);
+            return subject;
+            //return this.dforms.find( form => form.id === id);
+            return observable;
+        }
+        else {
+            return this.formsSub.map(function (res) {
+                var out = res.dforms.find(function (form) { return form.id === id; });
+                console.log("Returning ", out);
+                return out;
+            });
+        }
     };
     FormStore.prototype.dispatch = function (action) {
         console.log("[FormStore.dispatch] action: ", action);

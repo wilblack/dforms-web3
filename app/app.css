@@ -5,3 +5,7 @@
 .app-sidenav {
     width: 25%;
 }
+
+.content-wrapper {
+    margin:2em;
+}
