@@ -23,7 +23,9 @@ var DformList = (function () {
             'id': null,
             'name': '',
             'description': '',
-            'fields': []
+            'fields': [],
+            'apps': [],
+            'version': '1',
         };
     }
     DformList.prototype.addForm = function (form) {

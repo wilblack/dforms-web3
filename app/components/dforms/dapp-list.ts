@@ -23,11 +23,13 @@ export class DappList {
     constructor(private store: FormStore) {
         this.showDappForm = false;
 
+
         this.newDapp = {
           'slug': '',
           'name': '',
           'description': '',
-          'version': 1
+          'version': '1',
+          'supportEmail': ''
         }
     }
 

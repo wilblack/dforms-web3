@@ -39,7 +39,7 @@ export class Dform {
 
 const initialState = Immutable.Map({
   dforms: [],
-  apps: []
+  dapps: []
 })
 
 @Injectable()
@@ -76,7 +76,7 @@ export class FormStore {
   }
 
   get dapps(): Immutable.List<DappModel> {
-    return this.store.getState().get("apps");
+    return this.store.getState().get("dapps");
   }
 
   getDform(id: number): any {

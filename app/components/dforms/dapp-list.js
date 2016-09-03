@@ -19,7 +19,8 @@ var DappList = (function () {
             'slug': '',
             'name': '',
             'description': '',
-            'version': 1
+            'version': '1',
+            'supportEmail': ''
         };
     }
     DappList.prototype.addDapp = function (form) {

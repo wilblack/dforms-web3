@@ -29,7 +29,7 @@ var Dform = (function () {
 exports.Dform = Dform;
 var initialState = Immutable.Map({
     dforms: [],
-    apps: []
+    dapps: []
 });
 var FormStore = (function () {
     function FormStore(http) {
@@ -59,7 +59,7 @@ var FormStore = (function () {
     });
     Object.defineProperty(FormStore.prototype, "dapps", {
         get: function () {
-            return this.store.getState().get("apps");
+            return this.store.getState().get("dapps");
         },
         enumerable: true,
         configurable: true

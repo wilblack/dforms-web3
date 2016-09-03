@@ -25,11 +25,14 @@ export class DformList {
         this.formID = 0;
         this.showDformForm = false;
 
+
         this.newForm = {
           'id': null,
           'name': '',
           'description': '',
-          'fields': []
+          'fields': [],
+          'apps': [],
+          'version': '1',
         }
     }
 
