@@ -22,6 +22,14 @@ export function addForm(id: number, form: DformModel): IFormAction {
   };
 }
 
+export function updateForm(form: DformModel): IFormAction {
+  return {
+    type: 'UPDATE_DFORM',
+    id: form.id,
+    form
+  };
+}
+
 
 export function removeForm(id: number): IFormAction {
   return {

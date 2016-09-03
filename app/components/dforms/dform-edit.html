@@ -78,7 +78,7 @@
 
 <md-list cols="1" md-gutter="5px">
    <md-list-item *ngFor="let field of dform?.fields" >
-    <dfield class="margin-bottom" [dfield]="field"></dfield>
+    <dfield [dfield]="field" [dform]="dform"></dfield>
    </md-list-item>
 </md-list>
 

@@ -85,9 +85,6 @@ export class FormStore {
       let res = this.dforms.find( form => form.id === id);
       var subject = new BehaviorSubject(res);
       return subject;
-      //return this.dforms.find( form => form.id === id);
-
-      return observable
     } else {
 
       return this.formsSub.map(

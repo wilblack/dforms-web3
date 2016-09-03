@@ -56,7 +56,8 @@ var DformForm = (function () {
     DformForm = __decorate([
         core_1.Component({
             selector: 'dform-form',
-            templateUrl: 'app/components/dforms/dform-form/dform-form.html'
+            templateUrl: 'app/components/dforms/dform-form/dform-form.html',
+            styleUrls: ['app/app.css', 'app/components/dforms/dforms.css']
         }), 
         __metadata('design:paramtypes', [router_1.ActivatedRoute, form_store_1.FormStore])
     ], DformForm);

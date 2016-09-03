@@ -11,7 +11,7 @@ import { addApp } from '../../actions';
 @Component({
   selector: 'dapp-list',
   templateUrl: 'app/components/dforms/dapp-list.html',
-  styleUrls: ['app/components/dforms/dforms.css'],
+  styleUrls: ['app/app.css','app/components/dforms/dforms.css'],
   directives: [Dapp]
 })
 

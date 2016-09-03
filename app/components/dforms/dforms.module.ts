@@ -8,6 +8,7 @@ import { Dform }  from './dform';
 import { DappList }  from './dapp-list';
 import { Dapp }  from './dapp';
 import { Dfield }  from './dfield';
+import { DfieldForm }  from './dfield-form/dfield-form';
 
 import { FormStore } from '../../form-store';
 import { dformsRouting } from './dforms.routing';
@@ -21,7 +22,6 @@ import {MdInputModule} from '@angular2-material/input/input';
 @NgModule({
   imports: [
     CommonModule,
-    // FormsModule,
     ReactiveFormsModule,
     dformsRouting,
     MdCardModule,
@@ -36,7 +36,8 @@ import {MdInputModule} from '@angular2-material/input/input';
     Dapp,
     Dfield,
     DformEdit,
-    // REACTIVE_FORM_DIRECTIVES
+    DfieldForm
+
   ],
   providers: [
     FormStore

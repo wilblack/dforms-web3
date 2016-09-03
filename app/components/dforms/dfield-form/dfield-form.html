@@ -1,0 +1,83 @@
+<form  [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup)" novalidate>
+    <md-input  
+        id="label"
+        style="width: 100%"
+        name="label"
+        maxlength="60"
+        class="form-control" 
+        type="text"
+        placeholder="Field label or question"
+        formControlName="label"
+        required
+        >
+        <md-hint align="end">
+            This is the text displayed to the user in the app.
+        </md-hint>
+    </md-input> 
+
+        <md-input  
+            id="slug"
+            style="width: 100%"
+            name="slug"
+            maxlength="60"
+            class="form-control" 
+            type="text"
+            placeholder="Field Name (slug)"
+            formControlName="slug"
+            required
+            >
+            <md-hint align="start">
+                The slug for this field. Will be used in the data export. It should only contain letters, numbers, "-", and "_".
+            </md-hint>
+        </md-input> 
+
+    <div class="margin-bottom">
+    {{ dfield.type}}
+        <label for="type" class="">Widget Type</label>        
+            <select  id="type"
+                    name="type"
+                    class="form-control" 
+                    placeholder="type"
+                    formControlName="type">
+                    <option *ngFor="let item of dfieldTypeChoices" [value]="item.value">{{item.verbose}}</option>
+            </select>
+        <div class="col-xs-10 col-xs-offset-2 help-text">The UI widget used to collect this field</div>
+    </div>
+
+    
+     <md-input
+        *ngIf="['single-select', 'multi-select'].indexOf(formGroup.value.type) > -1"
+        id="choicesJson"
+        (change)="choicesJsonOnChange($event)"
+        style="width: 100%"
+        name="choicesJson"
+        maxlength="60"
+        class="form-control" 
+        type="text"
+        placeholder="Choices"
+        formControlName="choicesJson"
+        required
+        >
+        <md-hint align="start">
+            Enter a JSON string containing an array of choice objects. A choice object must contain 'value', 'label' keys.
+        </md-hint>
+    </md-input>
+
+    <md-input  
+        id="helpText"
+        style="width: 100%"
+        name="helpText"
+        maxlength="60"
+        class="form-control" 
+        type="text"
+        placeholder="Help Text"
+        formControlName="helpText"
+        >
+        <md-hint align="end">
+            Additional text to help the user
+        </md-hint>
+    </md-input> 
+
+    <input md-button type="submit" class="btn" value="Save">
+    <span class="error-text" [hidden]="formGroup.valid || formGroup.pristine">There are errors.</span>
+</form>

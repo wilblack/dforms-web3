@@ -10,9 +10,13 @@ import { FormStore } from './form-store';
 })
 
 export class AppComponent {
-    
+    sidenav: any;
 
     constructor(private store: FormStore) {
+        
+    }
+
+    ngOnInit() {
         
     }
 

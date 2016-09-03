@@ -39,7 +39,7 @@ var DformEdit = (function () {
         core_1.Component({
             selector: 'dform-edit',
             templateUrl: 'app/components/dforms/dform-edit.html',
-            styleUrls: ['app/components/dforms/dforms.css']
+            styleUrls: ['app/app.css', 'app/components/dforms/dforms.css']
         }), 
         __metadata('design:paramtypes', [form_store_1.FormStore, router_1.ActivatedRoute])
     ], DformEdit);

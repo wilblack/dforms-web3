@@ -17,6 +17,7 @@ var dform_1 = require('./dform');
 var dapp_list_1 = require('./dapp-list');
 var dapp_1 = require('./dapp');
 var dfield_1 = require('./dfield');
+var dfield_form_1 = require('./dfield-form/dfield-form');
 var form_store_1 = require('../../form-store');
 var dforms_routing_1 = require('./dforms.routing');
 var card_1 = require('@angular2-material/card');
@@ -30,7 +31,6 @@ var DformsModule = (function () {
         core_1.NgModule({
             imports: [
                 common_1.CommonModule,
-                // FormsModule,
                 forms_1.ReactiveFormsModule,
                 dforms_routing_1.dformsRouting,
                 card_1.MdCardModule,
@@ -45,6 +45,7 @@ var DformsModule = (function () {
                 dapp_1.Dapp,
                 dfield_1.Dfield,
                 dform_edit_1.DformEdit,
+                dfield_form_1.DfieldForm
             ],
             providers: [
                 form_store_1.FormStore

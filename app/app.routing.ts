@@ -8,8 +8,11 @@ import { Home } from './components/home/home';
 import { NoContent } from './components/no-content/no-content';
 
 const appRoutes: Routes = [
-
-    { path: '', component: Home },
+    {
+        path: '',
+        redirectTo: '/dapp-list',
+        pathMatch: 'full'
+    },
     { path: 'home', component: Home },
     { path: '**', component: NoContent }
 ];

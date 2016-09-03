@@ -5,7 +5,11 @@ var router_1 = require('@angular/router');
 var home_1 = require('./components/home/home');
 var no_content_1 = require('./components/no-content/no-content');
 var appRoutes = [
-    { path: '', component: home_1.Home },
+    {
+        path: '',
+        redirectTo: '/dapp-list',
+        pathMatch: 'full'
+    },
     { path: 'home', component: home_1.Home },
     { path: '**', component: no_content_1.NoContent }
 ];

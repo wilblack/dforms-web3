@@ -69,8 +69,6 @@ var FormStore = (function () {
             var res = this.dforms.find(function (form) { return form.id === id; });
             var subject = new BehaviorSubject_1.BehaviorSubject(res);
             return subject;
-            //return this.dforms.find( form => form.id === id);
-            return observable;
         }
         else {
             return this.formsSub.map(function (res) {

@@ -10,6 +10,13 @@ export function dforms(state: any = [], action: IFormAction) {
       case 'ADD_DFORM':
         state.push(action.form);
         return state;
+      case 'UPDATE_DFORM':
+        
+        let i = state.findIndex(form =>{
+          return form.id === action.form.id
+        })
+        state[i] = action.form;
+        return state;
 
       case 'REMOVE_DFORM':
         return state.delete(findIndexById());

@@ -31,7 +31,7 @@ var DappList = (function () {
         core_1.Component({
             selector: 'dapp-list',
             templateUrl: 'app/components/dforms/dapp-list.html',
-            styleUrls: ['app/components/dforms/dforms.css'],
+            styleUrls: ['app/app.css', 'app/components/dforms/dforms.css'],
             directives: [dapp_1.Dapp]
         }), 
         __metadata('design:paramtypes', [form_store_1.FormStore])

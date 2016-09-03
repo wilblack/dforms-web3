@@ -13,7 +13,6 @@
     <dform-form dform="newForm" (close)="addForm($event);"></dform-form>
   </div>
 
-  <h2>Forms</h2>
   <md-grid-list cols="3" md-gutter="5px">
      <md-grid-tile *ngFor="let form of store.dforms">
        <dform [form]="form"></dform>

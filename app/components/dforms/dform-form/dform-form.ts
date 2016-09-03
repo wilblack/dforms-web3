@@ -7,7 +7,8 @@ import { FormStore, Dform } from '../../../form-store';
 
 @Component({
   selector: 'dform-form',
-  templateUrl: 'app/components/dforms/dform-form/dform-form.html'
+  templateUrl: 'app/components/dforms/dform-form/dform-form.html',
+  styleUrls: ['app/app.css', 'app/components/dforms/dforms.css']
     
 })
 export class DformForm {

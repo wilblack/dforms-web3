@@ -7,7 +7,7 @@ import { FormStore, Dform as DformModel} from '../../form-store';
 @Component({
   selector: 'dform-edit',
   templateUrl: 'app/components/dforms/dform-edit.html',
-  styleUrls: ['app/components/dforms/dforms.css']
+  styleUrls: ['app/app.css', 'app/components/dforms/dforms.css']
 })
 
 export class DformEdit {

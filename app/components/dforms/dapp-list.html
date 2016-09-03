@@ -1,23 +1,25 @@
-<header>
-    <h2>
-      <button md-fab (click)="this.showDappForm = true;">
-        <i class="material-icons">add</i>
-      </button>
-      Your Apps
-    </h2>
-</header>
+<div class="content-wrapper">
+  <header>
+      <h2>
+        <button md-fab (click)="this.showDappForm = true;">
+          <i class="material-icons">add</i>
+        </button>
+        Your Apps
+      </h2>
+  </header>
 
 
-<div *ngIf="showDappForm">
-  DAPP FORM GOES HERE
+  <div *ngIf="showDappForm">
+    DAPP FORM GOES HERE
+  </div>
+
+  <md-grid-list cols="3" md-gutter="5px">
+     <md-grid-tile *ngFor="let dapp of store.dapps">
+       <dapp [app]="dapp"></dapp>
+     </md-grid-tile>
+  </md-grid-list>
+
+  <pre>
+    {{ store.dapps | json}}
+  </pre>
 </div>
-
-<md-grid-list cols="3" md-gutter="5px">
-   <md-grid-tile *ngFor="let dapp of store.dapps">
-     <dapp [app]="dapp"></dapp>
-   </md-grid-tile>
-</md-grid-list>
-
-<pre>
-  {{ store.dapps | json}}
-</pre>

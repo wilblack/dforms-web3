@@ -14,6 +14,8 @@ var AppComponent = (function () {
     function AppComponent(store) {
         this.store = store;
     }
+    AppComponent.prototype.ngOnInit = function () {
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'app',

@@ -12,7 +12,7 @@ import { addForm } from '../../actions';
 @Component({
   selector: 'form-list',
   templateUrl: 'app/components/dforms/dform-list.html',
-  styleUrls: ['app/components/dforms/dforms.css'],
+  styleUrls: ['app/app.css',  'app/components/dforms/dforms.css'],
   directives: [Dform, DformForm, Dapp]
 })
 

@@ -1,6 +1,9 @@
 .active {
-    background: yellow;
+    /*background: yellow;*/
+    background-color:rgba(156, 39, 176, 0.35);
+
 }
+
 
 .app-sidenav {
     width: 25%;
@@ -8,4 +11,21 @@
 
 .content-wrapper {
     margin:2em;
+}
+
+
+.app-sidenav a {
+    width: 100%;
+}
+
+.content-wrapper {
+    margin:2em;
+}
+
+md-input {
+    margin-bottom: 1em;
+}
+
+.margin-bottom {
+    margin-bottom: 1em;
 }

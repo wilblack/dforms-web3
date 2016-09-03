@@ -1,21 +1,32 @@
 <md-card class="margin-bottom">
     <md-card-title class="heading--name">{{ dfield.label }}</md-card-title>
     <md-card-content>
-        <p>{{ dfield.helpText }}</p>
-        <p>{{ dfield.type }}</p>
-        
-        <ul>
-            <li *ngFor="let choice of choices">{{ dfield.choices }}</li>
-        </ul>
+        <div *ngIf="editSlug !== dfield.slug">
+            <p>{{ dfield.helpText }}</p>
+            <p>{{ dfield.type }}</p>
+            <ul>
+                <li *ngFor="let choice of dfield.choices">
+                    ({{ choice.value}}) - {{ choice.label}}
+                </li>
+            </ul>
+        </div>
 
+        <dfield-form *ngIf="dfield.slug === editSlug" [dfield]="dfield" (close)="dfieldFormClose($event)"></dfield-form>
     </md-card-content>
     <md-card-actions>
-        <button md-button [routerLink]="['/dfield-edit', dfield.slug]" class="form-action">
+        <button *ngIf="editSlug !== dfield.slug" md-button (click)="editSlug = dfield.slug" class="form-action">
             <i class="fa fa-edit fa-2x "></i>
         </button>
         
-        <button md-button class="form-action" (click)="removeApp(app)">
+        <button *ngIf="editSlug !== dfield.slug" md-button (click)="removeApp(app)">
             <i class="fa fa-trash fa-2x"></i>
         </button>
+
+        <button *ngIf="editSlug === dfield.slug" md-button (click)="editSlug = null">
+            <i class="material-icons">cancel</i>
+        </button>
+           
     </md-card-actions>
+
+
 </md-card>

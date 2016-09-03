@@ -1,31 +1,27 @@
+<md-toolbar color="primary">
+    <md-button class="md-primary" (click)="sidenav.toggle()">
+        <i class="material-icons">menu</i>
+    </md-button>
+    <h1>&nbsp;Dynamic Forms Generator</h1>
+</md-toolbar>
 <md-sidenav-layout>
-    <md-sidenav #sidenav mode="side" class="app-sidenav">
-        <md-toolbar class="md-theme-indigo">
-            <h4 class="md-toolbar-tools">Menu</h4>
+    <md-sidenav #sidenav [opened]="true" mode="side" class="app-sidenav">
+        <md-toolbar color="accent" class="md-theme-indigo">
+            <h3 class="md-toolbar-tools">Menu</h3>
         </md-toolbar>
         <md-content layout-padding>
-            <md-list >
+            <md-list>
                 <md-list-item>
-                    <md-button routerLink="home" routerLinkActive="active" routerLinkActive="active">Home</md-button>
-                </md-list-item>
-                <md-list-item>
-                    <md-button routerLink="dapp-list"  routerLinkActive="active" routerLinkActive="active">Apps</md-button>
+                    <a md-button color="accent" routerLink="dapp-list"  routerLinkActive="active" routerLinkActive="active">Apps
+                    </a>
                 </md-list-item> 
                 <md-list-item>
-                    <md-button routerLink="form-list"  routerLinkActive="active" routerLinkActive="active">Forms</md-button>
+                    <a md-button color="accent" routerLink="form-list"  routerLinkActive="active" routerLinkActive="active">Forms</a>
                 </md-list-item> 
             </md-list>
-
+            
         </md-content>
     </md-sidenav>
-
-    <md-toolbar color="primary">
-        <md-button class="md-primary" (click)="sidenav.toggle()">
-            <i class="material-icons">menu</i>
-        </md-button>
-
-        <h2>Dynamic Forms Generator</h2>
-    </md-toolbar>
     <md-content layout-padding>
         <router-outlet></router-outlet>
     </md-content>

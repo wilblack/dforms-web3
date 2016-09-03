@@ -7,6 +7,14 @@ function addForm(id, form) {
     };
 }
 exports.addForm = addForm;
+function updateForm(form) {
+    return {
+        type: 'UPDATE_DFORM',
+        id: form.id,
+        form: form
+    };
+}
+exports.updateForm = updateForm;
 function removeForm(id) {
     return {
         type: 'REMOVE_DFORM',

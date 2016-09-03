@@ -7,6 +7,12 @@ function dforms(state, action) {
         case 'ADD_DFORM':
             state.push(action.form);
             return state;
+        case 'UPDATE_DFORM':
+            var i = state.findIndex(function (form) {
+                return form.id === action.form.id;
+            });
+            state[i] = action.form;
+            return state;
         case 'REMOVE_DFORM':
             return state.delete(findIndexById());
         default:
