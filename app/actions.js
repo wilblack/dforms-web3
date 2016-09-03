@@ -30,4 +30,12 @@ function addApp(slug, app) {
     };
 }
 exports.addApp = addApp;
+exports.epics = function (action$) {
+    action$.ofType('UPDATE_DFORM')
+        .map(updateForm);
+    action$.ofType('ADD_DFORM')
+        .map(addForm);
+    action$.ofType('ADD_DAPP')
+        .map(addApp);
+};
 //# sourceMappingURL=actions.js.map

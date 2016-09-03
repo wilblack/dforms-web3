@@ -10,6 +10,13 @@ import { Http } from '@angular/http';
 
 import { addForm, addApp } from './actions';
 
+/* redux-obseravble stuff
+ * https://github.com/redux-observable/redux-observable
+ */
+import { createEpicMiddleware } from 'redux-observable';
+import { epics } from './actions';
+
+const epicMiddleware = createEpicMiddleware(epics);
 
 export interface DfieldModel {
   type: string;
@@ -45,8 +52,9 @@ const initialState = Immutable.Map({
 @Injectable()
 export class FormStore {
 
-  //store = createStore(reducer, Immutable.List<Dform>());
-  store = createStore(reducer, initialState);
+  
+  //store = createStore(reducer, initialState);
+  store = createStore(reducer, epicMiddleware);
   formsSub: any;
   stateLoaded: boolean
   constructor(http: Http){

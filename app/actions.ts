@@ -48,3 +48,14 @@ export function addApp(slug: string, app: AppModel): IAppAction {
     app
   };
 }
+
+
+
+export const epics = action$ => {
+  action$.ofType('UPDATE_DFORM')
+    .map(updateForm);
+  action$.ofType('ADD_DFORM')
+    .map(addForm);
+  action$.ofType('ADD_DAPP')
+    .map(addApp);
+}
