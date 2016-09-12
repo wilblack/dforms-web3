@@ -1,6 +1,6 @@
 
 import Immutable = require('immutable');
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { IFormAction } from './actions';
 import  reducer from './reducers';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject'; 
@@ -13,10 +13,9 @@ import { addForm, addApp } from './actions';
 /* redux-obseravble stuff
  * https://github.com/redux-observable/redux-observable
  */
+import { rootEpic } from './actions';
 import { createEpicMiddleware } from 'redux-observable';
-import { epics } from './actions';
-
-const epicMiddleware = createEpicMiddleware(epics);
+//const epicMiddleware = createEpicMiddleware(rootEpic);
 
 export interface DfieldModel {
   type: string;
@@ -46,18 +45,19 @@ export class Dform {
 
 const initialState = Immutable.Map({
   dforms: [],
-  apps: []
+  dapps: []
 })
 
 @Injectable()
 export class FormStore {
-
   
-  //store = createStore(reducer, initialState);
-  store = createStore(reducer, epicMiddleware);
+  
+  store = createStore(reducer, initialState);
+  //store = createStore(reducer, applyMiddleware(epicMiddleware));
   formsSub: any;
   stateLoaded: boolean
   constructor(http: Http){
+    console.log("[DForm constructor()]");
     this.stateLoaded = false;
     this.formsSub = http.get("/app/components/dforms/mock_data.json")
       .map(response => response.json());
@@ -84,7 +84,8 @@ export class FormStore {
   }
 
   get dapps(): Immutable.List<DappModel> {
-    return this.store.getState().get("apps");
+    
+    return this.store.getState().get("dapps");
   }
 
   getDform(id: number): any {

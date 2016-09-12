@@ -11,6 +11,7 @@
     'rxjs':                       'node_modules/rxjs',
     'immutable':                  'node_modules/immutable/dist/immutable.js',
     'redux':                      'node_modules/redux/dist/redux.js',
+    'redux-observable':           'node_modules/redux-observable/dist/redux-observable.js',
 
     '@angular2-material': 'node_modules/@angular2-material'
   };

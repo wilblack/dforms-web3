@@ -15,12 +15,6 @@ var BehaviorSubject_1 = require('rxjs/BehaviorSubject');
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 var actions_1 = require('./actions');
-/* redux-obseravble stuff
- * https://github.com/redux-observable/redux-observable
- */
-var redux_observable_1 = require('redux-observable');
-var actions_2 = require('./actions');
-var epicMiddleware = redux_observable_1.createEpicMiddleware(actions_2.epics);
 var DappModel = (function () {
     function DappModel() {
     }
@@ -35,13 +29,13 @@ var Dform = (function () {
 exports.Dform = Dform;
 var initialState = Immutable.Map({
     dforms: [],
-    apps: []
+    dapps: []
 });
 var FormStore = (function () {
     function FormStore(http) {
         var _this = this;
-        //store = createStore(reducer, initialState);
-        this.store = redux_1.createStore(reducers_1.default, epicMiddleware);
+        this.store = redux_1.createStore(reducers_1.default, initialState);
+        console.log("[DForm constructor()]");
         this.stateLoaded = false;
         this.formsSub = http.get("/app/components/dforms/mock_data.json")
             .map(function (response) { return response.json(); });
@@ -65,7 +59,7 @@ var FormStore = (function () {
     });
     Object.defineProperty(FormStore.prototype, "dapps", {
         get: function () {
-            return this.store.getState().get("apps");
+            return this.store.getState().get("dapps");
         },
         enumerable: true,
         configurable: true

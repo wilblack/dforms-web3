@@ -4,7 +4,7 @@ import { IFormAction, IAppAction } from './actions';
 import { Dform as DformModel} from './form-store';
 
 
-export function dforms(state: any = [], action: IFormAction) {
+export function dforms(state: any = [], action: IFormAction): any {
     console.log("[form-reducer] action: ", action)
     switch (action.type) {
       case 'ADD_DFORM':
@@ -31,7 +31,7 @@ export function dforms(state: any = [], action: IFormAction) {
 }
 
 
-export function dapps(state: any = [], action: IAppAction) {
+export function dapps(state: any = [], action: IAppAction): any {
     console.log("[appReducer] action: ", action)
     switch (action.type) {
 
@@ -44,17 +44,28 @@ export function dapps(state: any = [], action: IAppAction) {
 }
 
 
-const reducers = Immutable.Map({
+const reducers = {
   "dforms": dforms,
-  "apps": dapps
-})
+  "dapps": dapps
+}
 
-const combineReducers = function(state = Immutable.Map({}), action) {
-  reducers.forEach((reducer, key) => {
-    var oldState = state.get(key)
-    var newState = reducer(oldState, action)
-    state = state.set(key, newState)
-  })
+const combineReducers = function(state = Immutable.Map({}), action: any) {
+  
+  let key = 'dforms';
+  var oldState = state.get(key)
+  var newState = reducers.dforms(oldState, action)
+  state = state.set(key, newState)
+
+  key = 'dapps';
+  var oldState = state.get(key)
+  var newState = reducers.dapps(oldState, action)
+  state = state.set(key, newState)
+
+  // reducers.forEach((reducer, key) => {
+  //   var oldState = state.get(key)
+  //   var newState = reducer(oldState, action)
+  //   state = state.set(key, newState)
+  // })
 
   return state
 }

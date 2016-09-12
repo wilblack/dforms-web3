@@ -17,7 +17,7 @@ export class AppComponent {
     }
 
     ngOnInit() {
-        
+        console.log("[AppComponent]")
     }
 
 }

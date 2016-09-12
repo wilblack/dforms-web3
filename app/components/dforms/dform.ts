@@ -2,7 +2,7 @@ import { Component, Input, ChangeDetectionStrategy} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { FormStore, Dform as DformModel} from '../../form-store';
-import { removeForm, starForm } from '../../actions';
+import { removeForm } from '../../actions';
 
 
 

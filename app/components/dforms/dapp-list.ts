@@ -27,7 +27,8 @@ export class DappList {
           'slug': '',
           'name': '',
           'description': '',
-          'version': 1
+          'version': '1',
+          'supportEmail': ''
         }
     }
 

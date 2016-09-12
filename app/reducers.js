@@ -35,17 +35,25 @@ function dapps(state, action) {
     }
 }
 exports.dapps = dapps;
-var reducers = Immutable.Map({
+var reducers = {
     "dforms": dforms,
-    "apps": dapps
-});
+    "dapps": dapps
+};
 var combineReducers = function (state, action) {
     if (state === void 0) { state = Immutable.Map({}); }
-    reducers.forEach(function (reducer, key) {
-        var oldState = state.get(key);
-        var newState = reducer(oldState, action);
-        state = state.set(key, newState);
-    });
+    var key = 'dforms';
+    var oldState = state.get(key);
+    var newState = reducers.dforms(oldState, action);
+    state = state.set(key, newState);
+    key = 'dapps';
+    var oldState = state.get(key);
+    var newState = reducers.dapps(oldState, action);
+    state = state.set(key, newState);
+    // reducers.forEach((reducer, key) => {
+    //   var oldState = state.get(key)
+    //   var newState = reducer(oldState, action)
+    //   state = state.set(key, newState)
+    // })
     return state;
 };
 var reducer = combineReducers;
