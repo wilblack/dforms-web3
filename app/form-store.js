@@ -34,8 +34,8 @@ var initialState = Immutable.Map({
 var FormStore = (function () {
     function FormStore(http) {
         var _this = this;
-        //store = createStore(reducer, Immutable.List<Dform>());
         this.store = redux_1.createStore(reducers_1.default, initialState);
+        console.log("[DForm constructor()]");
         this.stateLoaded = false;
         this.formsSub = http.get("/app/components/dforms/mock_data.json")
             .map(function (response) { return response.json(); });

@@ -15,6 +15,13 @@ function updateForm(form) {
     };
 }
 exports.updateForm = updateForm;
+function updateForm2(form) {
+    return {
+        type: 'UPDATE_DFORM',
+        id: form.id,
+        form: form
+    };
+}
 function removeForm(id) {
     return {
         type: 'REMOVE_DFORM',
@@ -30,4 +37,24 @@ function addApp(slug, app) {
     };
 }
 exports.addApp = addApp;
+function addApp2(slug, app) {
+    return {
+        type: 'ADD_DAPP',
+        slug: slug,
+        app: app
+    };
+}
+var dappEpic = function (action$) {
+    return action$.ofType('APP_DAPP')
+        .map(addApp2);
+};
+var dformEpic = function (action$) {
+    return action$.ofType('UPDATE_DFORM')
+        .map(updateForm2);
+};
+//export const rootEpic = combineEpics(dappEpic, dformEpic);
+// export const rootEpic = (action$, store) => merge(
+//   dappEpic(action$),
+//   dformEpic(action$)
+// );
 //# sourceMappingURL=actions.js.map
