@@ -79,8 +79,8 @@ const dformEpic = action$ =>
     .map(updateForm2);
 
 
-debugger
-export const rootEpic = combineEpics(dappEpic, dformEpic);
+
+//export const rootEpic = combineEpics(dappEpic, dformEpic);
 
 // export const rootEpic = (action$, store) => merge(
 //   dappEpic(action$),

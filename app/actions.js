@@ -1,5 +1,4 @@
 "use strict";
-var redux_observable_1 = require('redux-observable');
 function addForm(id, form) {
     return {
         type: 'ADD_DFORM',
@@ -53,8 +52,7 @@ var dformEpic = function (action$) {
     return action$.ofType('UPDATE_DFORM')
         .map(updateForm2);
 };
-debugger;
-exports.rootEpic = redux_observable_1.combineEpics(dappEpic, dformEpic);
+//export const rootEpic = combineEpics(dappEpic, dformEpic);
 // export const rootEpic = (action$, store) => merge(
 //   dappEpic(action$),
 //   dformEpic(action$)
